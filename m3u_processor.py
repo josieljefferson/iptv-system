@@ -82,7 +82,7 @@ def processar_lista(pasta_entrada, pasta_saida):
     epg_string = ",".join(EPG_URLS)
 
     header = (
-        f'#EXTM3U url-tvg="{epg_string}"\n'
+        f'#EXTM3U url-tvg="{epg_string}"\n\n'
         '#PLAYLISTV: '
         'pltv-logo="https://cdn-icons-png.flaticon.com/256/25/25231.png" '
         'pltv-name="☆Josiel Jefferson☆" '
@@ -90,7 +90,7 @@ def processar_lista(pasta_entrada, pasta_saida):
         'pltv-cover="https://images.icon-icons.com/2407/PNG/512/gitlab_icon_146171.png" '
         'pltv-author="☆Josiel Jefferson☆" '
         'pltv-site="https://josieljefferson12.github.io/" '
-        'pltv-email="josielluz@proton.me"\n'
+        'pltv-email="josielluz@proton.me"\n\n'
     )
 
     # 💾 salvar
