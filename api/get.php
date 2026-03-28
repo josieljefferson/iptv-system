@@ -9,4 +9,4 @@ if ($user !== "josielluz" || $pass !== "3264717") {
 
 header("Content-Type: application/vnd.apple.mpegurl");
 
-readfile("../outputs/final.m3u");
+readfile("../docs/final.m3u");
