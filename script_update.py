@@ -2,7 +2,6 @@ import requests
 import os
 from m3u_processor import processar_lista
 
-# 🔗 API do GitHub
 API_URL = "https://api.github.com/repos/josieljefferson/iptv-system/contents/"
 
 PASTA = "downloads"
@@ -11,12 +10,21 @@ OUTPUT = "docs"
 os.makedirs(PASTA, exist_ok=True)
 os.makedirs(OUTPUT, exist_ok=True)
 
+# 🚫 arquivos que NÃO devem ser baixados
+IGNORAR = ["requirements.txt"]
+
 def listar_arquivos():
     r = requests.get(API_URL)
     arquivos = []
 
     for item in r.json():
         nome = item["name"]
+
+        # 🔒 ignora arquivos específicos
+        if nome in IGNORAR:
+            continue
+
+        # 📂 aceita só listas IPTV
         if nome.endswith((".m3u", ".m3u8", ".txt")):
             arquivos.append(item["download_url"])
 
@@ -37,7 +45,6 @@ def baixar_arquivos(urls):
             print(f"❌ erro: {nome}")
 
 def gerar_epg():
-    # exemplo simples (pode integrar real depois)
     epg = {
         "channels": []
     }
@@ -51,7 +58,6 @@ def main():
     baixar_arquivos(urls)
     canais = processar_lista(PASTA, OUTPUT)
 
-    # salvar JSON
     import json
     with open(os.path.join(OUTPUT, "playlists.json"), "w") as f:
         json.dump(canais, f, indent=2)

@@ -106,6 +106,6 @@ def processar_lista(pasta_entrada, pasta_saida):
                 f'tvg-logo="{c["tvg_logo"]}" '
                 f'group-title="{c["group"]}",{c["nome"]}\n'
             )
-            f.write(c["url"] + "\n")
+            f.write(c["url"] + "\n\n")
 
     return canais
