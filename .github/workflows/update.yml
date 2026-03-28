@@ -1,0 +1,33 @@
+name: IPTV Auto Update
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v3
+
+      - name: Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Instalar deps
+        run: pip install -r requirements.txt
+
+      - name: Rodar script
+        run: python script_update.py
+
+      - name: Commit automático
+        run: |
+          git config --global user.name "iptv-bot"
+          git config --global user.email "bot@iptv.com"
+          git add .
+          git commit -m "update iptv" || echo "sem mudanças"
+          git push
