@@ -53,7 +53,7 @@ def main():
 
     # salvar JSON
     import json
-    with open(os.path.join(OUTPUT, "final.json"), "w") as f:
+    with open(os.path.join(OUTPUT, "playlists.json"), "w") as f:
         json.dump(canais, f, indent=2)
 
     gerar_epg()

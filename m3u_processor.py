@@ -94,7 +94,7 @@ def processar_lista(pasta_entrada, pasta_saida):
     )
 
     # 💾 salvar
-    caminho_saida = os.path.join(pasta_saida, "final.m3u")
+    caminho_saida = os.path.join(pasta_saida, "playlists.m3u")
 
     with open(caminho_saida, "w", encoding="utf-8") as f:
         f.write(header)
