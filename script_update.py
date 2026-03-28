@@ -3,10 +3,10 @@ import os
 from m3u_processor import processar_lista
 
 # 🔗 API do GitHub
-API_URL = "https://api.github.com/repos/josieljefferson/playlists/contents/"
+API_URL = "https://api.github.com/repos/josieljefferson/iptv-system/contents/"
 
 PASTA = "downloads"
-OUTPUT = "outputs"
+OUTPUT = "docs"
 
 os.makedirs(PASTA, exist_ok=True)
 os.makedirs(OUTPUT, exist_ok=True)
